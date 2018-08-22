@@ -1,0 +1,22 @@
+{% extends 'base_list_categories.html' %}
+
+{% block body %}
+<div class="container">
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <img class="img-responsive" src="http://placehold.it/800x300" alt="">
+                <div class="caption-full">
+                    <h4 class="pull-right">R$ {{ item.price }}</h4>
+                    <h3>{{ item.item_name }}</h3>
+                    <p>{{ item.item_long_description}}</p>
+                </div>
+                <div class="caption">
+                    <!-- <p class="pull-right"><a href="#">Editar</a> <a href="#">| Excluir</a><p> -->
+                      <a href='{{ url_for('editItem', category_id = category_id, item_id =item.id) }}' type="button" class="btn btn-success btn-circle" data-toggle="tooltip" data-placement="top" title="Editar Item"><i class="fa fa-edit"></i></a>
+                      <a href='{{ url_for('deleteItem', category_id = category_id, item_id = item.id) }}' type="button" class="btn btn-primary btn-circle pull-right" data-toggle="tooltip" data-placement="top" title="Excluir Item"><i class="fa fa-trash"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
