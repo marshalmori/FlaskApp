@@ -24,8 +24,7 @@ app = Flask(__name__)
 
 CURRENT_DIR = os.path.dirname(__file__)
 client_secret = os.path.join(CURRENT_DIR, 'client_secrets.json')
-CLIENT_ID = json.loads(open('client_secrets.json', 'r').
-                       read())['web']['client_id']
+CLIENT_ID = json.loads(open('client_secrets.json', 'r').read())['web']['client_id']
 
 engine = create_engine('postgresql://catalog:601077@localhost/catalog')
 
