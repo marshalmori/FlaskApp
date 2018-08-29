@@ -16,20 +16,17 @@ import string
 import httplib2
 import json
 import requests
+import os
 
 auth = HTTPBasicAuth()
 
 app = Flask(__name__)
 
-# CLIENT_ID = json.loads(open('client_secrets.json', 'r').
-#                        read())['web']['client_id']
-CLIENT_ID = json.loads(open('client_secrets.json', 'r').read())['web']['client_id']
+CURRENT_DIR = os.path.dirname(__file__)
+client_secret = os.path.join(CURRENT_DIR, 'client_secrets.json')
+CLIENT_ID = json.loads(open('client_secrets.json', 'r').
+                       read())['web']['client_id']
 
-
-# engine = create_engine(
-#                         'sqlite:///catalogo.db',
-#                         connect_args={'check_same_thread': False}
-#                       )
 engine = create_engine('postgresql://catalog:601077@localhost/catalog')
 
 Base.metadata.bind = engine
